@@ -1,0 +1,69 @@
+<div class="page-body-wrapper full-page-wrapper auth-page">
+    <div class="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
+      <div class="row w-100">
+        <div class="col-lg-4 mx-auto">
+          <h2 class="text-center mb-4" style="color: white;">Ingresar</h2>
+
+       
+          <div class="auto-form-wrapper">
+            <form [formGroup]="loginForm" (ngSubmit)="Authentication()">
+                <div class="selec">
+                    <select class="form-select" formControlName="name" >
+                        <option selected >AIRLINES</option>
+                        <option *ngFor="let air of airlines">{{air.name}}</option>
+                      </select>
+                </div>
+              <div class="form-group">
+                <label class="label mt-3">Username</label>
+                <div class="input-group">
+                  <input 
+                  formControlName="username"
+                  type="text" 
+                  class="form-control" 
+                  placeholder="Username">
+                  <div class="input-group-append">
+                    <span class="input-group-text">
+                      <i class="fa fa-check-circle"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="label">Password</label>
+                <div class="input-group">
+                  <input 
+                  formControlName="password"
+                  type="password" 
+                  class="form-control" 
+                  placeholder="*********">
+                  <div class="input-group-append">
+                    <span class="input-group-text">
+                      <i class="fa fa-check-circle"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="label">remember_me</label>
+                <div class="input-group">
+                  <input 
+                  formControlName="remember_me"
+                  type="text" 
+                  class="form-control" 
+                  placeholder="remember_me">
+                  <div class="input-group-append">
+                    <span class="input-group-text">
+                      <i class="fa fa-check-circle"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <button 
+                class="btn btn-primary submit-btn btn-block" 
+                type="submit">
+                Login
+              </button>
+              </div>
+            </form>
+          </div>
