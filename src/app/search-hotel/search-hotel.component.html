@@ -1,0 +1,19 @@
+
+<div class="card-columns">
+    <div class="card" *ngFor="let hotel of listHotel">
+      <img class="card-img-top" [src]="hotel.propertyImage">
+      <div class="card-body">
+        <h5 class="card-title"> {{ hotel.name }} </h5>
+        <p class="card-text">
+          <span class="text-muted">
+            ID: {{ hotel.id }}
+          </span>
+        </p>
+        <p>Price: ${{hotel.price}}</p>
+      </div>
+    </div>
+   
+    <div>
+      <button class="btn btn-primary" (click)="closeSession()">Cerrar sesión</button>
+    </div>
+  </div>
