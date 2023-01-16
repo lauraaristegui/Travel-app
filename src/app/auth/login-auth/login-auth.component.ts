@@ -52,10 +52,11 @@ export class LoginAuthComponent implements OnInit {
         console.log(data, 'estoy en el ts');
         
         if(data) {
-          this.router.navigate(['/hotel'])
+          this.router.navigate(['/search'])
         }
       })
   }
+
 
 
 }

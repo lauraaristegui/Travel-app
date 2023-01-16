@@ -1,0 +1,12 @@
+<div fxLayout="row wrap"
+fxLayoutAlign="center"
+fxLayoutGap="20px">
+  <div 
+   *ngFor="let hotel of hotels" class="card-margin">
+   <app-hotel-card-component
+    [hotel]="hotel"
+   ></app-hotel-card-component>
+</div>
+</div>
+
+

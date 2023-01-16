@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginAuthComponent } from './login/login-auth/login-auth.component';
-import { HotelListComponent } from './hotelsList/hotel-list.component';
+
+import { ErrorComponentComponent } from './shared/error-component/error-component.component';
 
 const routes: Routes = [
-  {path:'login', component: LoginAuthComponent},
-  {path: 'hotel', component: HotelListComponent},
-  {path: '**', redirectTo: '/login'}
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'hotel',
+    loadChildren: () => import('./hotels/hotel.module').then(m => m.HotelModule)
+  },
+  {path:'404', component: ErrorComponentComponent},
+  {path: '**', redirectTo: '404'}
 ];
 
 @NgModule({
