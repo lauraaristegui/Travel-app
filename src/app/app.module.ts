@@ -9,17 +9,16 @@ import {HttpClientModule} from '@angular/common/http'
 import { LoginAuthComponent } from './login/login-auth/login-auth.component';
 import { LoginModule } from './login/login.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { SharedModule } from './shared/shared.module';
 
 
-import { SearhHotelComponent } from './search-hotel/search-hotel.component';
+import { HotelListComponent } from './hotelsList/hotel-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginAuthComponent,
-    SearhHotelComponent,
+    HotelListComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +26,6 @@ import { SearhHotelComponent } from './search-hotel/search-hotel.component';
     HttpClientModule,
     LoginModule,
     ReactiveFormsModule,
-    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

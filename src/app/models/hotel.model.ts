@@ -2,10 +2,11 @@
 export class HotelModelList{
 
     constructor(
-      public  id: string,
       public  name: string,
-       public availability: object,
-       public price: object,
-       public propertyImage: object,
+      public  id: string,
+       public availability: boolean,
+       public price: string,
+       public image: string,
+       public description: string
     ) {}
 }
