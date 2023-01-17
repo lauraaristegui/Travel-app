@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { ListHotels } from '../../interfaces/hotels.interface';
 import { HotelService } from '../../service/hotel.service';
 
@@ -12,7 +11,6 @@ export class HotelListComponent implements OnInit {
   
    hotels: ListHotels[] = [];
   constructor(
-    private router: Router,
     private hotelService: HotelService
   ) { }
 
@@ -23,12 +21,5 @@ export class HotelListComponent implements OnInit {
   .subscribe(hotel => this.hotels = hotel
   )
  
-  
  }
-
-  closeSession() {
-  this.router.navigate(['/login']);
-}
-
-
 }
