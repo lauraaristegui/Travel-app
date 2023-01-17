@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject,Observable } from 'rxjs';
 import { ListHotels } from '../../interfaces/hotels.interface';
 import { HotelService } from '../../service/hotel.service';
 
@@ -21,7 +20,10 @@ export class HotelListComponent implements OnInit {
  async ngOnInit() {
 
   this.hotelService.getHotels()
-  .subscribe(hotel => this.hotels = hotel)
+  .subscribe(hotel => this.hotels = hotel
+  )
+ 
+  
  }
 
   closeSession() {

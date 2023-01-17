@@ -17,6 +17,7 @@ import { ErrorComponentComponent } from './shared/error-component/error-componen
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

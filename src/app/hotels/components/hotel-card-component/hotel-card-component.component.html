@@ -8,8 +8,11 @@
 
     <div class="card-body-button">
       <p>Price:${{hotel.price}}</p>
-     <button class="btn btn-info" 
-      (click)="navigateTo()"
+      <div  [routerLink]="['/hotel', hotel.id ]">
+        <button class="btn btn-info" 
+  >
     >Más Info</button>
+      </div>
+     
     </div>
   </div>

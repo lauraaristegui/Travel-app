@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap, map } from 'rxjs/operators';
 import { ListHotels } from '../../interfaces/hotels.interface';
+import { HotelService } from '../../service/hotel.service';
 
 @Component({
   selector: 'app-hotel',
@@ -9,13 +11,26 @@ import { ListHotels } from '../../interfaces/hotels.interface';
 })
 export class HotelComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute) { }
-
   hotel!: ListHotels;
-  ngOnInit(): void {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private hotelService: HotelService,
+    private router: Router
+    
+    ) { }
 
-    this.activatedRoute.queryParams
-    .subscribe(({id}) => console.log(id, 'data'))
-  }
+  ngOnInit() {
+
+   this.activatedRoute.params
+  .pipe(
+    switchMap((id) => this.hotelService.getHotelById(id['id']))
+  )
+  .subscribe(hotel => this.hotel =  hotel
+  )
+
+}
+   backList() {
+    this.router.navigate(['./hotel/list-hotel'])
+   }
 
 }

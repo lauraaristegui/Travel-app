@@ -14,8 +14,4 @@ export class HotelCardComponentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navigateTo() {
-    this.router.navigate(['hotel/id'])
-  }
-
 }

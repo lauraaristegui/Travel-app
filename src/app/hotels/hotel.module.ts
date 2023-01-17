@@ -10,6 +10,7 @@ import { HotelComponent } from './pages/hotel/hotel.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HotelCardComponentComponent } from './components/hotel-card-component/hotel-card-component.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -27,6 +28,7 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     CommonModule,
     HotelsRoutingModule,
     FlexLayoutModule,
+    FormsModule
   ]
 })
 export class HotelModule { }

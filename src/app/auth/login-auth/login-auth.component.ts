@@ -13,14 +13,15 @@ import { AirLineService } from '../../services/airline.service';
 export class LoginAuthComponent implements OnInit {
 
 
-  loginForm: FormGroup;
+  loginForm: FormGroup
+  
   airlines :AirlineName[] = [];
-
 
   constructor(
     private airlineService: AirLineService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+   
   ) { }
 
   ngOnInit(): void {
@@ -48,11 +49,9 @@ export class LoginAuthComponent implements OnInit {
      if(this.loginForm.invalid){return;}
       const {name, username, password, remember_me} = this.loginForm.value
       this.airlineService.loginAirLines(name, username, password, remember_me)
-      .subscribe(data => {
-        console.log(data, 'estoy en el ts');
-        
+      .subscribe(data => {        
         if(data) {
-          this.router.navigate(['/search'])
+          this.router.navigate(['/'])
         }
       })
   }
