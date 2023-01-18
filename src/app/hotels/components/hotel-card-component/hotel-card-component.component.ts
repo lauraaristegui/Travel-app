@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ListHotels } from '../../interfaces/hotels.interface';
+import { ListHotels } from '../../../models/hotels.model';
 import { Router } from '@angular/router';
 
 @Component({

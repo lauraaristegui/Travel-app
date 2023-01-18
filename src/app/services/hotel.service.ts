@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ListHotels } from '../interfaces/hotels.interface';
+import { ListHotels } from '../models/hotels.model';
 import { Observable } from 'rxjs';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,8 @@ export class HotelService {
   constructor(
     private http: HttpClient) { }
 
-    getHotels(): Observable<ListHotels[]> {
-      return this.http.get<ListHotels[]>(`${this.baseUrl}/Hotels`)
+    getHotels():Observable<any> {
+      return this.http.get(`${this.baseUrl}/Hotels`)
     }
 
     getHotelById(id:string):Observable<ListHotels> {

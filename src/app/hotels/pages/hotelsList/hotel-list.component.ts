@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ListHotels } from '../../interfaces/hotels.interface';
-import { HotelService } from '../../service/hotel.service';
+import { Store } from '@ngrx/store';
+import { ListHotels } from '../../../models/hotels.model';
+import { HotelService } from '../../../services/hotel.service';
+import { AppState } from '../../../store/app.reducer';
+import { loadHotels } from '../../../store/actions/hotels.actions';
+import { HotelsEffects } from '../../../store/effects/hotels.effects';
 
 @Component({
   selector: 'app-hotel-list',
@@ -10,16 +14,23 @@ import { HotelService } from '../../service/hotel.service';
 export class HotelListComponent implements OnInit {
   
    hotels: ListHotels[] = [];
-  constructor(
-    private hotelService: HotelService
-  ) { }
+   loading: boolean =  false;
+   error: any;
+
+   constructor(
+    private store: Store<AppState>
+  ){}
 
   
  async ngOnInit() {
 
-  this.hotelService.getHotels()
-  .subscribe(hotel => this.hotels = hotel
-  )
- 
+  this.store.select('hotels').subscribe(({hotels, loading, error}) => {
+  this.hotels = hotels;
+  this.loading = loading;
+  this.error = error;
+    
+ })
+
+  this.store.dispatch(loadHotels())
  }
 }

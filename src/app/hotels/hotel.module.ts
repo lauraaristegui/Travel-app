@@ -10,11 +10,9 @@ import { HotelComponent } from './pages/hotel/hotel.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HotelCardComponentComponent } from './components/hotel-card-component/hotel-card-component.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
-import { FilterPriceComponent } from './pages/filter-price/filter-price.component';
-
-
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -24,15 +22,16 @@ import { FilterPriceComponent } from './pages/filter-price/filter-price.componen
     HomeComponent,
     HotelCardComponentComponent,
     ImagenPipe,
-    FilterPriceComponent,
-    
   ],
+
   imports: [
     CommonModule,
     HotelsRoutingModule,
     FlexLayoutModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
   ]
 })
+
 export class HotelModule { }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 
-import { ListHotels } from '../../interfaces/hotels.interface';
-import { HotelService } from '../../service/hotel.service';
+import { ListHotels } from '../../../models/hotels.model';
+import { HotelService } from '../../../services/hotel.service';
 
 @Component({
   selector: 'app-form-search-hotel',

@@ -6,7 +6,7 @@ export class AirlineName {
     ) {}
 }
 
-export class LoginAirLine {
+export class UserLogin {
  
     constructor(
         public name: string,

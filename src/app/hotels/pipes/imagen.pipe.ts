@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ListHotels } from '../interfaces/hotels.interface';
+import { ListHotels } from '../../models/hotels.model';
 
 @Pipe({
   name: 'imagen'

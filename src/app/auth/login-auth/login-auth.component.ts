@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginAirLine , AirlineName} from 'src/app/models/airline.model';
+
+import  Swal from 'sweetalert2'
+
+import { AirlineName} from 'src/app/models/airline.model';
 import { AirLineService } from '../../services/airline.service';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-login-auth',
@@ -33,10 +37,12 @@ export class LoginAuthComponent implements OnInit {
       password: [12345, Validators.required],
       remember_me: ['', Validators.required]
     })
+ 
   }
+
   getListAir() {
     this.airlineService.getAirLines().subscribe((data) => {
-    this.airlines =  data  
+    this.airlines =  data
   });
 }
   
@@ -46,12 +52,16 @@ export class LoginAuthComponent implements OnInit {
       const {name, username, password, remember_me} = this.loginForm.value
       this.airlineService.loginAirLines(name, username, password, remember_me)
       .subscribe(data => {        
-        if(data) {
+        if(data) {    
+          console.log(data, 'data del ts authenticatin');
+           
           this.router.navigate(['/hotel/search'])
         }
+        
       })
   }
 
-
+  
+  
 
 }
