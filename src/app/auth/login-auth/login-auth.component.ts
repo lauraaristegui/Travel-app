@@ -36,11 +36,7 @@ export class LoginAuthComponent implements OnInit {
   }
   getListAir() {
     this.airlineService.getAirLines().subscribe((data) => {
-    this.airlines =  data
-  console.log(this.airlines);
-  
- 
-    
+    this.airlines =  data  
   });
 }
   
@@ -51,7 +47,7 @@ export class LoginAuthComponent implements OnInit {
       this.airlineService.loginAirLines(name, username, password, remember_me)
       .subscribe(data => {        
         if(data) {
-          this.router.navigate(['/'])
+          this.router.navigate(['/hotel/search'])
         }
       })
   }

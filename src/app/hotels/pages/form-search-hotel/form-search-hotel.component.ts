@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Router } from '@angular/router';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+
+import { ListHotels } from '../../interfaces/hotels.interface';
+import { HotelService } from '../../service/hotel.service';
 
 @Component({
   selector: 'app-form-search-hotel',
@@ -9,16 +11,34 @@ import { Router } from '@angular/router';
 })
 export class FormSearchHotelComponent implements OnInit {
 
+  searchTerm: string = '';
+
+  hotels: ListHotels[] = [];
+
+  hotelSelecction!: ListHotels;
+
   constructor(
-    private router : Router
+    private serviceHotel: HotelService
   ) { }
-  searchTerm$ = new BehaviorSubject<string>('');
-  ngOnInit(): void {
+
+  ngOnInit() {
+   
   }
 
-  serach() {
+  search() {
+    this.serviceHotel.suggestionsHotels(this.searchTerm)
+    .subscribe((hotel) => {
+      this.hotels = hotel;      
+  })
+}
+
+ optionSelected(event: MatAutocompleteSelectedEvent) {
+
+  const hotel: ListHotels =  event.option.value;
   
-    this.router.navigate(['/hotel'])
+  this.searchTerm =  hotel.name;
+  this.serviceHotel.getHotelById(hotel.id)
+  .subscribe(hotel => this.hotelSelecction =  hotel)
+}
   
-  }
 }

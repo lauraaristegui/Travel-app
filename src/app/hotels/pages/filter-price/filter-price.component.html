@@ -1,0 +1,12 @@
+    
+        <button *ngIf="availaTrue"(click)="availabilityHotel()">Disponible</button>
+    <div *ngIf="availaTrue">
+       <mat-card *ngFor="let avai of availability">
+          {{avai.availability }}
+       </mat-card>
+
+    </div>
+
+ 
+  
+  

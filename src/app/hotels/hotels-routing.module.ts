@@ -5,7 +5,7 @@ import { HotelListComponent } from './pages/hotelsList/hotel-list.component';
 import { FormSearchHotelComponent } from './pages/form-search-hotel/form-search-hotel.component';
 import { HotelComponent } from './pages/hotel/hotel.component';
 import { HomeComponent } from './pages/home/home.component';
-
+import  { FilterPriceComponent }  from './pages/filter-price/filter-price.component'
 const routes: Routes = [
   {
     path: '',
@@ -13,8 +13,9 @@ const routes: Routes = [
     children: [
       { path: 'list-hotel', component: HotelListComponent},
       { path: 'search', component: FormSearchHotelComponent},
+      { path: 'price', component: FilterPriceComponent},
       { path: ':id', component: HotelComponent},
-      {path: '**', redirectTo: 'list-hotel'}
+      { path:  '**', redirectTo:'list-hotel'}
     ]
   }
 ]

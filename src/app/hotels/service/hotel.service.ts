@@ -19,6 +19,9 @@ export class HotelService {
 
     getHotelById(id:string):Observable<ListHotels> {
       return this.http.get<ListHotels>(`${this.baseUrl}/Hotels/${id}`)
+    }
 
+    suggestionsHotels(term: string): Observable<ListHotels[]> {
+      return this.http.get<ListHotels[]>(`${this.baseUrl}/hotels?q=${term}`);
     }
 }

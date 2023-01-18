@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
+
+@import './styles/var';
+
+@include mat-core();
+@include angular-material-theme($dynamic-app-theme);
+@include angular-material-typography($dynamic-typography);
+
+body {
+  margin: 0;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}

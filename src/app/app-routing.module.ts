@@ -12,8 +12,8 @@ const routes: Routes = [
     path: 'hotel',
     loadChildren: () => import('./hotels/hotel.module').then(m => m.HotelModule)
   },
-  {path:'home', component: ErrorComponentComponent},
-  {path: '**', redirectTo: 'home'}
+  {path:'', component: ErrorComponentComponent},
+  {path: '**', redirectTo: '404'}
 ];
 
 @NgModule({

@@ -11,6 +11,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { HotelCardComponentComponent } from './components/hotel-card-component/hotel-card-component.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
 import { FormsModule } from '@angular/forms';
+import { MaterialModule } from '../material/material.module';
+import { FilterPriceComponent } from './pages/filter-price/filter-price.component';
 
 
 
@@ -22,13 +24,15 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     HotelCardComponentComponent,
     ImagenPipe,
+    FilterPriceComponent,
     
   ],
   imports: [
     CommonModule,
     HotelsRoutingModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    MaterialModule
   ]
 })
 export class HotelModule { }
