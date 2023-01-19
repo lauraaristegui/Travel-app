@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AirlineName } from './models/airline.model';
-import { AirLineService } from './services/airline.service';
+import { AirLineService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',

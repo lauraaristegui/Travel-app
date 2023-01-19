@@ -6,10 +6,10 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.reducer';
 import * as uiActions from '../../store/actions/ui.actions';
 
-import { catchError, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import { AirlineName} from 'src/app/models/airline.model';
-import { AirLineService } from '../../services/airline.service';
+import { AirLineService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login-auth',
