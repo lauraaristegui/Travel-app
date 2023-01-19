@@ -6,13 +6,13 @@
 </div>
 <div *ngIf="error">
   <h2 class="example-h2">Error</h2> -->
-<div *ngIf="!hotel">
+<div *ngIf="error">
 
   <pre>{{error | json}}</pre>
 </div>
 
 <!-- </div> -->
-   <div *ngIf="!loading">
+   <!-- <div *ngIf="!loading">
     <div fxFlex="50">
       <h1>Descripción</h1>
       <p>{{hotel.description}}</p>
@@ -23,5 +23,25 @@
      <div>
      <button class="btn btn-info"  type="button" (click)="backList()">Regresar</button>
     </div>
-   </div>
- 
+   </div> -->
+   <div fxLayout="row wrap"  fxLayoutAlign="center" fxLayoutGap="20px">
+    <div class="card-margin">
+   <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{hotel.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+       {{hotel.description}}
+      </p>
+      <p>
+        Price: ${{hotel.price}}.-
+       </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button type="button" (click)="backList()">Regresar</button>
+    </mat-card-actions>
+  </mat-card>
+  </div>    
+  </div>

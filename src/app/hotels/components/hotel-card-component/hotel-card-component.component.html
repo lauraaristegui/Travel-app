@@ -5,13 +5,10 @@
       <h5 class="card-title">{{hotel.name}}</h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>
-
     <div class="card-body-button">
       <p>Price:${{hotel.price}}</p>
       <div  [routerLink]="['/hotel', hotel.id ]">
-        <button class="btn btn-info" 
-  >
-    >Más Info</button>
+        <button  mat-button color="warn">Más info</button>
       </div>
      
     </div>

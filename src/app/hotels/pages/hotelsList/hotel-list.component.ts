@@ -16,7 +16,7 @@ export class HotelListComponent implements OnInit {
    hotels: ListHotels[] = [];
    loading: boolean =  false;
    error: any;
-
+ 
    constructor(
     private store: Store<AppState>
   ){}
