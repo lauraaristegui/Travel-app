@@ -13,13 +13,12 @@ import { User } from '../models/user.model';
 export class AirLineService {
 
   private url = 'https://beta.id90travel.com'
-  userLog: Subscription;
   
   constructor(
+  
     private http: HttpClient,
     private store: Store<AppState>
-  
-  ) {}
+  ){}
 
   initAuthListener(){
     const obj = {
@@ -36,13 +35,14 @@ export class AirLineService {
         const user = User.FromId90({id90_user_id, first_name, username, last_name, airline})
         this.store.dispatch(authActions.setUser({user: user}))
        } 
-        if(!userLog){
-          this.store.dispatch(authActions.unSetUser())
+       else{
+        this.store.dispatch(authActions.unSetUser())
        }
     }
     )
     
   }
+
   getAirLines():Observable<any> {
     return this.http.get(`${this.url}/airlines`)    
   }
@@ -53,8 +53,6 @@ export class AirLineService {
      map((data) => data['member'])
     )
   }
-
-
 
 }
 
