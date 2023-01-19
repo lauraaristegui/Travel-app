@@ -14,7 +14,7 @@ import { AirLineService } from '../../services/airline.service';
 @Component({
   selector: 'app-login-auth',
   templateUrl: './login-auth.component.html',
-  styleUrls: ['./login-auth.component.css']
+  styleUrls: ['./login-auth.component.scss']
 })
 
 export class LoginAuthComponent implements OnInit, OnDestroy {
@@ -37,7 +37,6 @@ export class LoginAuthComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getListAir();
-
   
     this.loginForm = this.fb.group({
       name: [[] , Validators.required],
@@ -45,6 +44,7 @@ export class LoginAuthComponent implements OnInit, OnDestroy {
       password: [12345, Validators.required],
       remember_me: ['', Validators.required]
     })
+  
   this.uiSubscriptions = this.store.select('ui').subscribe(data => {
       this.loading = data.isLoading;
   })
@@ -59,7 +59,6 @@ export class LoginAuthComponent implements OnInit, OnDestroy {
     this.airlines =  data
   });
 }
-  
 
   Authentication(){
      if(this.loginForm.invalid){return;}
@@ -68,9 +67,8 @@ export class LoginAuthComponent implements OnInit, OnDestroy {
       this.airlineService.loginAirLines(name, username, password, remember_me)
       .subscribe(data => {        
         if(data) {    
-          console.log(data, 'data del ts authenticatin');
           this.store.dispatch(uiActions.stopLoading())
-          this.router.navigate(['/hotel/search'])
+          this.router.navigate(['/hotel/list-hotel'])
         }
         
       })

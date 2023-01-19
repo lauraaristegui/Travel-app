@@ -12,7 +12,9 @@ const routes: Routes = [
     path: 'hotel',
     loadChildren: () => import('./hotels/hotel.module').then(m => m.HotelModule)
   },
-  {path:'', component: ErrorComponentComponent},
+
+  {path:'404', component: ErrorComponentComponent},
+  
   {path: '**', redirectTo: '404'}
 ];
 

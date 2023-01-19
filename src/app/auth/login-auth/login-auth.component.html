@@ -1,97 +1,40 @@
+<div class="body">
+  <div class="login">
+    <img src="../../../assets/img/usuer.png" alt="">
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="Authentication()">
+      <mat-form-field appearance="fill" class="width">
+        <mat-label>Airline</mat-label>
+        <mat-select formControlName="name">
+          <mat-option *ngFor="let air of airlines" value="option">{{air.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-<div class="page-body-wrapper full-page-wrapper auth-page">
-    <div class="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
-      <div class="row w-100">
-        <div class="col-lg-4 mx-auto">
-          <h2 class="text-center mb-4" style="color: white;">Ingresar</h2>
+      <mat-form-field appearance="fill" class="width">
+        <mat-label>Usuario</mat-label>
+        <input matInput placeholder="Placeholder" autocomplete="off" formControlName="username">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
 
-       
-          <div class="auto-form-wrapper">
-            <form [formGroup]="loginForm" (ngSubmit)="Authentication()">
-                <div class="selec">
-                    <select class="form-select" formControlName="name" >
-                        <option selected >AIRLINES</option>
-                        <option *ngFor="let air of airlines">{{air.name}}</option>
-                      </select>
-                </div>
-              <div class="form-group">
-                <label class="label mt-3">Username</label>
-                <div class="input-group">
-                  <input 
-                  formControlName="username"
-                  type="text" 
-                  class="form-control" 
-                  placeholder="Username">
-                  <div class="input-group-append">
-                    <span class="input-group-text">
-                      <i class="fa fa-check-circle"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="label">Password</label>
-                <div class="input-group">
-                  <input 
-                  formControlName="password"
-                  type="password" 
-                  class="form-control" 
-                  placeholder="*********">
-                  <div class="input-group-append">
-                    <span class="input-group-text">
-                      <i class="fa fa-check-circle"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="label">remember_me</label>
-                <div class="input-group">
-                  <input 
-                  formControlName="remember_me"
-                  type="text" 
-                  class="form-control" 
-                  placeholder="remember_me">
-                  <div class="input-group-append">
-                    <span class="input-group-text">
-                      <i class="fa fa-check-circle"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div >
-                <button 
-                class="btn btn-primary submit-btn btn-block" 
-                type="button"
-                [disabled]="true"
-                *ngIf="loading"
-               >
-                Cargando...
-              </button>
-                <button 
-                class="btn btn-primary submit-btn btn-block" 
-                type="submit"
-                [disabled]="loginForm.invalid"
-                *ngIf="!loading"
-                >
-                Login
-              </button>
-              </div>
-              <!-- <div>
-              <mat-card-actions>
-                <button mat-button
-                type="submit"
-                [disabled]="loginForm.invalid"
-                *ngIf="loading"
-                >Login</button>
-              </mat-card-actions>
-              <mat-card-actions>
-                <button mat-button 
-                type="button"
-                [disabled]="true"
-                *ngIf="!loading"
-                >Cargando...</button>
-              </mat-card-actions>
-              </div> -->
-            </form>
-          </div>
+      <mat-form-field appearance="fill" class="width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput placeholder="Placeholder" type="password" formControlName="password">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="width">
+        <mat-label>Miembro</mat-label>
+        <input matInput placeholder="Placeholder" type="text" formControlName="remember_me">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+      <br>
+      <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid" *ngIf="!loading"
+        class="width button">Ingresar
+      </button>
+      <button mat-raised-button color="primary" class="width button" type="button" [disabled]="true" *ngIf="loading">
+        <i class="fa fa-spin fa-sync"></i>
+        Cargando...</button>
+
+    </form>
+  </div>
+</div>
