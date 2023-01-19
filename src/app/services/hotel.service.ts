@@ -17,11 +17,11 @@ export class HotelService {
       return this.http.get(`${this.baseUrl}/Hotels`)
     }
 
-    getHotelById(id:string):Observable<ListHotels> {
-      return this.http.get<ListHotels>(`${this.baseUrl}/Hotels/${id}`)
+    getHotelById(id:string):Observable<any> {
+      return this.http.get(`${this.baseUrl}/Hotels/${id}`)
     }
 
-    suggestionsHotels(term: string): Observable<ListHotels[]> {
-      return this.http.get<ListHotels[]>(`${this.baseUrl}/hotels?q=${term}`);
+    suggestionsHotels(term: string): Observable<any> {
+      return this.http.get(`${this.baseUrl}/hotels?q=${term}`);
     }
 }

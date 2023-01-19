@@ -1,8 +1,8 @@
 <div *ngIf="loading">
   <h2 class="example-h2">Cargando</h2>
-<p>
-  <i class="fa fa-sync fa-spin fa-2x"></i>
-</p>
+  <p>
+    <i class="fa fa-sync fa-spin fa-2x"></i>
+  </p>
 </div>
 <div *ngIf="error">
   <h2 class="example-h2">Error</h2>
@@ -11,15 +11,8 @@
 
 </div>
 
-<div fxLayout="row wrap"*ngIf="!loading"
-fxLayoutAlign="center"
-fxLayoutGap="20px">
-  <div 
-   *ngFor="let hotel of hotels" class="card-margin">
-   <app-hotel-card-component
-    [hotel]="hotel"
-   ></app-hotel-card-component> 
- </div>
+<div fxLayout="row wrap" *ngIf="!loading" fxLayoutAlign="center" fxLayoutGap="20px">
+  <div *ngFor="let hotel of hotels" class="card-margin">
+    <app-hotel-card-component [hotel]="hotel"></app-hotel-card-component>
+  </div>
 </div>
-
-

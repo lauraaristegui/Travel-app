@@ -9,14 +9,14 @@ export interface HotelsState {
     error: any
 }
 
-export const hotelInitialState: HotelsState = {
+export const hotelsInitialState: HotelsState = {
    hotels: [],
    loaded: false,
    loading: false,
    error: null
 }
 
-const _hotelsReducer = createReducer(hotelInitialState,
+const _hotelsReducer = createReducer(hotelsInitialState,
 
     on(loadHotels, state => ({ ...state, loading: true})),
     on(loadHotelsSuccess, (state, {hotels}) => 
@@ -40,6 +40,6 @@ const _hotelsReducer = createReducer(hotelInitialState,
     })),
 );
 
-export function hotelReducer(state, action) {
+export function hotelsReducer(state, action) {
     return _hotelsReducer(state, action);
 }
