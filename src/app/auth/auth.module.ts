@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { LoginAuthComponent } from './login-auth/login-auth.component';
 import { AuthRoutingModule } from './auth-routing.module';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [LoginAuthComponent],
@@ -11,6 +12,7 @@ import { AuthRoutingModule } from './auth-routing.module';
     CommonModule,
     ReactiveFormsModule,
     AuthRoutingModule,
+    MaterialModule
     
   ]
 })
