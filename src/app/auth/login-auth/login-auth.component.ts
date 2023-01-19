@@ -38,6 +38,7 @@ export class LoginAuthComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getListAir();
 
+  
     this.loginForm = this.fb.group({
       name: [[] , Validators.required],
       username: ['', Validators.required],
@@ -77,5 +78,4 @@ export class LoginAuthComponent implements OnInit, OnDestroy {
 
   
   
-
 }

@@ -5,7 +5,7 @@ import { HotelListComponent } from './pages/hotelsList/hotel-list.component';
 import { FormSearchHotelComponent } from './pages/form-search-hotel/form-search-hotel.component';
 import { HotelComponent } from './pages/hotel/hotel.component';
 import { HomeComponent } from './pages/home/home.component';
-import { AuthGuard } from '../services/auth.guard';
+// import { AuthGuard } from '../services/auth.guard';
 
 const routes: Routes = [
   {
@@ -17,7 +17,7 @@ const routes: Routes = [
       { path: ':id', component: HotelComponent},
       { path:  '**', redirectTo:'list-hotel'}
     ],
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   }
 ]
 

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AirlineName } from './models/airline.model';
+import { AirLineService } from './services/airline.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'travel-app';
+ 
+  constructor(private authService: AirLineService){
+    this.authService.initAuthListener()    
+  }
+
 }
