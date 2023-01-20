@@ -6,10 +6,10 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.reducer';
 import * as uiActions from '../../store/actions/ui.actions';
 
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 
 import { AirlineName} from 'src/app/models/airline.model';
-import { AirLineService } from '../../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login-auth',
@@ -28,7 +28,7 @@ export class LoginAuthComponent implements OnInit, OnDestroy {
   uiSubscriptions: Subscription;
 
   constructor(
-    private airlineService: AirLineService,
+    private airlineService: AuthService,
     private fb: FormBuilder,
     private router: Router,
     private store: Store<AppState>
@@ -60,17 +60,17 @@ export class LoginAuthComponent implements OnInit, OnDestroy {
   });
 }
 
-  Authentication(){
+  Authentication() {
+  
      if(this.loginForm.invalid){return;}
      this.store.dispatch(uiActions.isLoading())
       const {name, username, password, remember_me} = this.loginForm.value
       this.airlineService.loginAirLines(name, username, password, remember_me)
       .subscribe(data => {        
-        if(data) {    
+        if(data) {   
           this.store.dispatch(uiActions.stopLoading())
           this.router.navigate(['/hotel/list-hotel'])
         }
-        
       })
   }
 

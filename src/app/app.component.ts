@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AirlineName } from './models/airline.model';
-import { AirLineService } from './services/auth.service';
+import { AuthService } from './services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +8,11 @@ import { AirLineService } from './services/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
- 
-  constructor(private authService: AirLineService){
-    this.authService.initAuthListener()    
+ unSubscrition: Subscription
+  constructor(private authService: AuthService){
+   this.authService.initAuthListener()  
   }
+
+ 
 
 }
