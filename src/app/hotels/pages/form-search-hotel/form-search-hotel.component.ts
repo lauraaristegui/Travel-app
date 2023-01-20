@@ -7,7 +7,7 @@ import { HotelService } from '../../../services/hotel.service';
 @Component({
   selector: 'app-form-search-hotel',
   templateUrl: './form-search-hotel.component.html',
-  styleUrls: ['./form-search-hotel.component.css']
+  styleUrls: ['./form-search-hotel.component.scss']
 })
 export class FormSearchHotelComponent implements OnInit {
 

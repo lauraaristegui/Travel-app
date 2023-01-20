@@ -1,51 +1,30 @@
 <div fxLayout="column">
   <div>
-      <h1>Buscador de Héroes</h1>
-      <mat-divider></mat-divider>
+    <h1>Buscador de Hoteles</h1>
+    <mat-divider></mat-divider>
   </div>
-  
+
   <div fxLayout="column">
-      <h3>Buscador</h3>
+    <mat-form-field>
+      <input type="text" placeholder="Buscá por hotel" aria-label="Number" matInput [(ngModel)]="searchTerm"
+        [matAutocomplete]="auto" (input)="search()">
 
-      <mat-form-field>
-          <input type="text"
-                 placeholder="Pick one"
-                 aria-label="Number"
-                 matInput
-                 [(ngModel)]="searchTerm"
-                 [matAutocomplete]="auto"
-                 (input)="search()">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="optionSelected($event)">
 
-          <mat-autocomplete autoActiveFirstOption 
-                            #auto="matAutocomplete"
-                            (optionSelected)="optionSelected( $event )">
+        <mat-option *ngFor="let hotel of hotels" [value]="hotel">
+          {{ hotel.name }}
+        </mat-option>
 
-            <mat-option *ngFor="let hotel of hotels" [value]="hotel">
-              {{ hotel.name }}
-            </mat-option>
+        <mat-option value="" *ngIf="hotels.length === 0 && searchTerm.trim().length > 0">
+          No se encontró nada con el término {{ searchTerm }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
 
-            <mat-option value="" *ngIf="hotels.length === 0 && searchTerm.trim().length > 0">
-              No se encontró nada con el término {{ searchTerm }}
-            </mat-option>
-            
-
-          </mat-autocomplete>
-      
-      </mat-form-field>
-
-
-
+    <div *ngIf="hotelSelecction" class="row">
+      <div class="card-hotel">
+        <app-hotel-card-component [hotel]="hotelSelecction">
+        </app-hotel-card-component>
+      </div>
+    </div>
   </div>
-
-  <div>
-      <pre>{{ hotelSelecction| json }}</pre>
-   
-  </div>
-</div>
-
-
- 
-
-
-
-
