@@ -37,11 +37,9 @@ const _hotelReducer = createReducer(hotelInitialState,
         loading: false,
         loaded: false,
         error: {
-            
             url: payload.url,
             name: payload.name,
-            message:payload.message
-            
+            message:payload.message   
         }
     })),
 );

@@ -1,36 +1,37 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ListHotels } from '../../../models/hotels.model';
-import { HotelService } from '../../../services/hotel.service';
 import { AppState } from '../../../store/app.reducer';
 import { loadHotels } from '../../../store/actions/hotels.actions';
-import { HotelsEffects } from '../../../store/effects/hotels.effects';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-hotel-list',
   templateUrl: './hotel-list.component.html',
   styleUrls: ['./hotel-list.component.css']
 })
-export class HotelListComponent implements OnInit {
+export class HotelListComponent implements OnInit, OnDestroy {
   
    hotels: ListHotels[] = [];
    loading: boolean =  false;
    error: any;
- 
+   unSubcribe: Subscription;
+
    constructor(
     private store: Store<AppState>
   ){}
 
   
- async ngOnInit() {
-
-  this.store.select('hotels').subscribe(({hotels, loading, error}) => {
-  this.hotels = hotels;
-  this.loading = loading;
-  this.error = error;
-    
+  ngOnInit() {
+   this.unSubcribe = this.store.select('hotels').subscribe(({hotels, loading, error}) => {
+   this.hotels = hotels;
+   this.loading = loading;
+   this.error = error;
  })
+   this.store.dispatch(loadHotels())
+ }
 
-  this.store.dispatch(loadHotels())
+ ngOnDestroy(){
+   this.unSubcribe.unsubscribe()
  }
 }

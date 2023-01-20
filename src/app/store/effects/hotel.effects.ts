@@ -20,7 +20,7 @@ export class HotelEffects {
             (action) => this.hotelService.getHotelById(action.id)
             .pipe(
                 map(hotel => hotelActions.loadHotelSuccess({hotel: hotel})),
-                 catchError(err => of(hotelActions.loadHotelsError({payload: err})))
+                 catchError(err => of(hotelActions.loadHotelError({payload: err})))
             )
         )
     ))

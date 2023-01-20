@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../store/app.reducer';
 import { unSetUser } from '../../../store/actions/auth.actions';
+import { unSetHotels } from '../../../store/actions/hotels.actions';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,7 @@ export class HomeComponent {
 
   closeSession() {
     this.store.dispatch(unSetUser())
+    this.store.dispatch(unSetHotels())
     this.router.navigate(['./auth/login'])
   }
 }

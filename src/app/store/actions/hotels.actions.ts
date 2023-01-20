@@ -6,6 +6,7 @@ export const loadHotels = createAction('[hotels] load hotels');
 export const loadHotelsSuccess = createAction('[hotels] load hotels Success',
     props<{hotels: ListHotels[]}>()
 );
+export const unSetHotels= createAction('[hotels] UnSethotels');
 
 export const loadHotelsError = createAction('[hotels] load hotels Error',
     props<{payload: any}>()

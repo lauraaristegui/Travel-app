@@ -26,7 +26,6 @@ export class HotelComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-
     this.store.select('hotel').subscribe(
       ({hotel, loading, error}) => {
         this.hotel = hotel;
@@ -38,9 +37,10 @@ export class HotelComponent implements OnInit {
       this.store.dispatch(loadHotel({id}))
    })
 
-}
+  }
+
    backList() {
     this.router.navigate(['./hotel/list-hotel'])
-   }
+  }
 
 }

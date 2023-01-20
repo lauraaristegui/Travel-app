@@ -1,14 +1,12 @@
 <div *ngIf="loading">
   <h2 class="example-h2">Cargando</h2>
-  <p>
-    <i class="fa fa-sync fa-spin fa-2x"></i>
-  </p>
+  <i class="fa fa-sync fa-spin fa-2x"></i>
 </div>
-<div *ngIf="error">
-  <h2 class="example-h2">Error</h2>
-  <pre>{{error | json}}</pre>
 
-</div>
+<div *ngIf="error && !loading">
+  <pre>{{error | json}}</pre>
+  </div>
+  
 <div *ngIf="!loading" fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="20px">
   <div class="card-margin">
     <mat-card class="example-card">

@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { loadHotels, loadHotelsError, loadHotelsSuccess } from '../actions';
+import { loadHotels, loadHotelsError, loadHotelsSuccess, unSetHotels } from '../actions';
 import { ListHotels } from '../../models/hotels.model';
 
 export interface HotelsState {
@@ -25,17 +25,17 @@ const _hotelsReducer = createReducer(hotelsInitialState,
         loaded: true,
         hotels: [...hotels]
     })),
+    on(unSetHotels, state => 
+    ({ ...state, hotels: [] })),
 
     on(loadHotelsError, (state, {payload}) => 
     ({ ...state, 
         loading: false,
         loaded: false,
         error: {
-            
             url: payload.url,
             name: payload.name,
             message:payload.message
-            
         }
     })),
 );
